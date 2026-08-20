@@ -44,42 +44,44 @@ erDiagram
 
 ## データ項目
 
+型はPostgreSQLでの実装を想定した型で記載する(id列はUUID型、日時はtimestamp型とする)。
+
 ### Board(ボード)
 | 項目 | 型 | 説明 |
 | --- | --- | --- |
-| id | string | 一意なID |
-| title | string | ボード名 |
-| createdAt | string | 作成日時 |
+| id | UUID | 一意なID |
+| title | text | ボード名 |
+| createdAt | timestamp | 作成日時 |
 
 ### List(リスト)
 | 項目 | 型 | 説明 |
 | --- | --- | --- |
-| id | string | 一意なID |
-| boardId | string | 所属するボードのID |
-| title | string | リスト名 |
-| order | number | ボード内での並び順 |
-| createdAt | string | 作成日時 |
+| id | UUID | 一意なID |
+| boardId | UUID | 所属するボードのID |
+| title | text | リスト名 |
+| order | integer | ボード内での並び順 |
+| createdAt | timestamp | 作成日時 |
 
 ### Card(カード)
 | 項目 | 型 | 説明 |
 | --- | --- | --- |
-| id | string | 一意なID |
-| listId | string | 所属するリストのID |
-| title | string | カードタイトル |
-| description | string | 説明文 |
-| dueDate | string \| null | 期限日 |
-| order | number | リスト内での並び順 |
-| createdAt / updatedAt | string | 作成日時・更新日時 |
+| id | UUID | 一意なID |
+| listId | UUID | 所属するリストのID |
+| title | text | カードタイトル |
+| description | text | 説明文 |
+| dueDate | date \| null | 期限日 |
+| order | integer | リスト内での並び順 |
+| createdAt / updatedAt | timestamp | 作成日時・更新日時 |
 
 ### Label(ラベル)
 | 項目 | 型 | 説明 |
 | --- | --- | --- |
-| id | string | 一意なID |
-| name | string | ラベル名 |
-| color | string | 表示色 |
+| id | UUID | 一意なID |
+| name | text | ラベル名 |
+| color | text | 表示色 |
 
 ### CardLabel(カードとラベルの中間テーブル)
 | 項目 | 型 | 説明 |
 | --- | --- | --- |
-| cardId | string | カードのID |
-| labelId | string | ラベルのID |
+| cardId | UUID | カードのID |
+| labelId | UUID | ラベルのID |
