@@ -1,0 +1,78 @@
+.app {
+  padding: 16px 24px;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 320px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.error {
+  color: #c62828;
+}
+
+.board-title {
+  margin: 0 0 16px;
+}
+
+.list-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  overflow-x: auto;
+}
+
+.list-column {
+  background: #f4f5f7;
+  border-radius: 6px;
+  padding: 12px;
+  min-width: 240px;
+  flex-shrink: 0;
+}
+
+.list-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.list-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-item {
+  background: #fff;
+  border-radius: 4px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 14px;
+}
+
+.card-labels {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.card-label {
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.card-due-date {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #555;
+}
