@@ -1,6 +1,7 @@
 package com.taskmanagement.backend.service;
 
 import com.taskmanagement.backend.dto.CardResponse;
+import com.taskmanagement.backend.entity.Card;
 import com.taskmanagement.backend.repository.CardRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,11 @@ public class CardService {
         this.cardRepository = cardRepository;
     }
 
-    public List<CardResponse> getAllCards() {
-        return cardRepository.findAll().stream().map(CardResponse::from).toList();
+    public List<CardResponse> searchCards(String keyword) {
+        List<Card> cards = (keyword == null || keyword.isBlank())
+                ? cardRepository.findAll()
+                : cardRepository.findByTitleContainingIgnoreCase(keyword);
+        return cards.stream().map(CardResponse::from).toList();
     }
 
     public CardResponse getCardById(UUID id) {
