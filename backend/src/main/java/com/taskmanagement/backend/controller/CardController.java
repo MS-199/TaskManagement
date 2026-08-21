@@ -5,6 +5,7 @@ import com.taskmanagement.backend.service.CardService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,8 +22,8 @@ public class CardController {
     }
 
     @GetMapping
-    public List<CardResponse> getAllCards() {
-        return cardService.getAllCards();
+    public List<CardResponse> getAllCards(@RequestParam(required = false) String keyword) {
+        return cardService.searchCards(keyword);
     }
 
     @GetMapping("/{id}")
